@@ -25,6 +25,7 @@ function MainCtrl($scope, $state, ngDialog, studyFilterService, Constants) {
 
     $scope.$on('ERROR', function (err) {
         alert(err);
+        alert(err.message);
         ngDialog.open({
             templateUrl: './views/dialog.html',
             showClose: false
