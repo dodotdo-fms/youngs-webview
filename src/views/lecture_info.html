@@ -1,0 +1,85 @@
+<div class="LectureInfo">
+    <div class="LectureInfoImage"
+         style="background-image: url('{{ ::lecture_detail.lecture.img_url }}');">
+        <div ng-if="!canBeJoin(lecture_detail.lecture)"
+             class="LectureInfoImage__notStartOverlay">
+            <b>{{ getLectureOverlayMessage(lecture_detail.lecture).title }}</b>
+            <label>{{ getLectureOverlayMessage(lecture_detail.lecture).message }}</label>
+            <div class="LectureInfoImage__darkBack"></div>
+        </div>
+    </div>
+
+    <div class="LectureInfo__context">
+        <span class="LectureInfo__title">{{ ::lecture_detail.lecture.title }}</span>
+        <span class="LectureInfo__description">
+            {{ ::lecture_detail.lecture.description }}
+        </span>
+    </div>
+
+    <div class="LectureInfo__btnInner">
+        <button ng-disabled="lecture_detail.joinBtnStr.disabled"
+                class="LectureInfo__joinBtn">
+            {{ lecture_detail.joinBtnStr.name }}
+        </button>
+    </div>
+
+    <div class="LectureInfo__teacher">
+        <div class="TeacherDetail TeacherDetail--is-small">
+            <div class="TeacherDetail__inner">
+                <div class="TeacherDetail__profile"
+                     style="background-image: url('{{ ::lecture_detail.lecture.member.profile_url }}');"></div>
+                <div class="TeacherDetail__content">
+                    <table>
+                        <tr>
+                            <td>강사</td>
+                            <td>{{ ::lecture_detail.lecture.member.nickname }}</td>
+                        </tr>
+                        <tr>
+                            <td>평점</td>
+                            <td>
+                                <div class="TeacherDetail__stars">
+                                    <span ng-repeat="i in lecture_detail.makeRange(lecture_detail.lecture.point_avg)"></span>
+
+                                    <label>{{ ::(lecture_detail.lecture.point_avg | NumberFilter) }}</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>후기</td>
+                            <td>{{ ::lecture_detail.lecture.review_list.length }}개</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="LectureInfo__review">
+        <div class="ReviewList">
+            <div class="ReviewList__title">
+                <span>YOUNGS Teach 리뷰</span>
+                <a href="/detail/lecture/{{ routeState.params.lectureId }}/addComment">리뷰 작성하기</a>
+            </div>
+
+            <div ng-repeat="review in lecture_detail.lecture.review_list track by review.id"
+                 class="Review">
+                <div class="Review__left">
+                    <img class="Review__profile" ng-src="{{ ::review.member.profile_url }}" />
+                </div>
+                <div class="Review__right">
+                    <div class="Review__title">
+                        <span>{{ ::review.member.nickname }}</span>
+                        <label>{{ ::review.register_timestamp | TimeFilter }} 작성</label>
+                    </div>
+                    <div class="Review__rate">
+                        <span ng-repeat="i in makeRange(review.point)"></span>
+
+                        <label>{{ ::review.point }}</label>
+                    </div>
+                    <span class="Review__context">{{ ::review.content }}</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

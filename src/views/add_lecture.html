@@ -1,0 +1,39 @@
+<div class="AddLecture">
+    <div class="AddLectureItem">
+        <span>제목</span>
+        <input ng-model="add_lecture.lectureInfo.title"
+               placeholder="제목을 입력하세요"
+               type="text" maxlength="100"/>
+    </div>
+
+    <div class="AddLectureItem">
+        <span>설명</span>
+        <textarea ng-model="add_lecture.lectureInfo.description"
+                  placeholder="설명을 입력하세요"
+                  maxlength="500"></textarea>
+    </div>
+
+    <div class="AddLectureItem">
+        <span>분류</span>
+        <div class="Selector">
+            <select ng-model="add_lecture.lectureInfo.type">
+                <option ng-repeat="item in add_lecture.lectureTypeMenu track by item.id"
+                        value="{{ ::item.value }}">{{ ::item.name }}</option>
+            </select>
+            <img src="../assets/images/down.png"/>
+        </div>
+    </div>
+
+    <div class="AddLecturePhoto">
+        <span>배경 사진</span>
+        <input id="photo" type="file" name="photo" accept="image/*"/>
+        <label for="photo">
+            <img ng-src="{{ (add_lecture.lectureInfo.imageUrl === null) ? '../assets/images/photo-mock.png' : add_lecture.lectureInfo.imageUrl }}"/>
+        </label>
+    </div>
+
+    <div class="AddLecture__button">
+        <button ng-disabled="currentRequesting"
+                ng-click="add_lecture.postLecture()">만들기</button>
+    </div>
+</div>

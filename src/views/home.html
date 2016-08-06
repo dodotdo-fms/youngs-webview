@@ -1,0 +1,88 @@
+<div class="Home">
+    <div ng-controller="AdvertiseCtrl as advertise" class="Advertise">
+        <div class="Advertise__banner">
+            <div class="Advertise__inner">
+                <div ng-repeat="ad in advertise.advertises track by ad.id"
+                     class="{{ ::ad.type }}"
+                     style="transform: translate3d({{ ((ad.id - advertise.currentIndex) * 100) + '%' }}, 0, 0);"></div>
+            </div>
+        </div>
+        <div class="Advertise__dots">
+            <span ng-repeat="ad in advertise.advertises track by ad.id"
+                  ng-class="{
+                    'Advertise__dot--is-active': ad.id === advertise.currentIndex
+                  }"
+                  class="Advertise__dot"></span>
+        </div>
+    </div>
+
+    <div class="LectureList">
+        <span class="LectureList__title">BEST3 강의</span>
+
+        <div ng-if="home.bestLectures.length === 0 && !currentRequesting"
+             class="NoItem">정보가 없습니다.</div>
+
+        <div ng-repeat="lecture in home.bestLectures track by lecture.id"
+             ng-click="onSelectLecture(lecture.id)"
+             class="Lecture">
+            <div class="Lecture__label">
+                <span>{{ ::lecture.type }}</span>
+                <label ng-if="isLive(lecture)">LIVE</label>
+            </div>
+
+            <div class="Lecture__image"
+                 style="background-image: url('{{ ::lecture.img_url }}');"></div>
+            <div class="Lecture__content">
+                <span class="Lecture__title">{{ ::lecture.title }}</span>
+                <span class="Lecture__description">
+                    {{ ::lecture.description }}
+                </span>
+                <div class="Lecture__teacher">
+                    <div class="TeacherSummary">
+                        <img class="TeacherSummary__profile" src="{{ ::lecture.member.profile_url }}" />
+                        <div class="TeacherSummary__context">
+                            <span>{{ ::lecture.member.nickname }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="TeacherList">
+        <span class="TeacherList__title">BEST3 강사</span>
+
+        <div ng-repeat="teacher in home.bestTeachers track by teacher.id"
+             class="TeacherDetail">
+            <div class="TeacherDetail__inner">
+                <div class="TeacherDetail__profile"
+                     style="background-image: url('{{ ::teacher.profile_url }}');"></div>
+                <div class="TeacherDetail__content">
+                    <table>
+                        <tr>
+                            <td>강사</td>
+                            <td>{{ ::teacher.nickname }}</td>
+                        </tr>
+                        <tr>
+                            <td>개설강좌 수</td>
+                            <td>{{ ::teacher.lecture_num }}</td>
+                        </tr>
+                        <tr>
+                            <td>평점</td>
+                            <td>
+                                <div class="TeacherDetail__stars">
+                                    <span ng-repeat="i in makeRange(teacher.point_avg)"></span>
+                                    <label>{{ ::(teacher.point_avg | NumberFilter) }}</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>후기</td>
+                            <td>{{ ::teacher.review_num }}개</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

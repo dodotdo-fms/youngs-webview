@@ -1,0 +1,44 @@
+<div class="Study">
+    <div class="ToolBar">
+        <span class="ToolBar__title">{{ studyFilterService.getFilterStr() }}</span>
+        <button ui-sref="detail.studySelect" class="ToolBar__settingBtn">
+            <img src="./assets/images/setup.png" />
+        </button>
+    </div>
+
+    <div ng-if="(study.lectureGroup | LectureTypeFilter:studyFilterService.getFilter()).length === 0 && !currentRequesting"
+         class="NoItem">현재 진행 중인 강의가 없습니다.</div>
+
+    <div ng-repeat="group in (study.lectureGroup | LectureTypeFilter:studyFilterService.getFilter()) track by group.id"
+         class="LectureList">
+        <span class="LectureList__title">{{ ::constants.typeMenuMap[group.type] }}</span>
+
+        <div ng-repeat="lecture in group.list track by lecture.id"
+             ng-click="onSelectLecture(lecture.id)"
+             class="Lecture">
+            <div class="Lecture__label">
+                <span>{{ ::lecture.type }}</span>
+                <label ng-if="isLive(lecture)">LIVE</label>
+            </div>
+
+            <div class="Lecture__image"
+                 style="background-image: url('{{ ::lecture.img_url }}');"></div>
+            <div class="Lecture__content">
+                <span class="Lecture__title">{{ ::lecture.title }}</span>
+                <span class="Lecture__description">
+                    {{ ::lecture.description }}
+                </span>
+                <div class="Lecture__teacher">
+                    <div class="TeacherSummary">
+                        <img class="TeacherSummary__profile" src="{{ ::lecture.member.profile_url }}" />
+                        <div class="TeacherSummary__context">
+                            <span>{{ ::lecture.member.nickname }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

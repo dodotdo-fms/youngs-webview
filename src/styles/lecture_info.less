@@ -1,0 +1,130 @@
+@import "base";
+
+.LectureInfo {
+    display: block;
+
+    background-color: #e4e4e4;
+
+    &__context {
+        display: block;
+
+        padding: 2.7vh 5.19vw;
+
+        background-color: #ffffff;
+    }
+
+    &__title {
+        display: block;
+
+        font-size: 4.8vw;
+        font-weight: 700;
+        color: #ff5959;
+
+        margin-bottom: 1vh;
+    }
+
+    &__description {
+        display: block;
+
+        font-size: 3.7vw;
+        font-weight: 300;
+        line-height: 1.3;
+        color: #303030;
+    }
+
+    &__btnInner {
+        display: block;
+
+        padding: 1.2vh 2.3vw;
+
+        background-color: #ffffff;
+    }
+
+    &__joinBtn {
+        display: block;
+
+        width: 100%;
+        height: 7.8vh;
+
+        font-size: 4vw;
+        font-weight: 700;
+        line-height: 7.8vh;
+        color: #ffffff;
+
+        outline: 0;
+        border: 0;
+        background-color: #ff5959;
+
+        .buttonDisabled();
+    }
+
+    &__teacher {
+        display: block;
+
+        padding: 2.5vw 0;
+    }
+
+    &__review {
+        display: block;
+
+        padding: 0 2.5vw 2.5vw 2.5vw;
+    }
+}
+
+.LectureInfoImage {
+    position: relative;
+    display: block;
+
+    width: 100%;
+    height: 31.9vh;
+
+    background-size: cover;
+    background-position: center;
+
+    &__notStartOverlay {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 100%;
+
+        z-index: 100;
+
+        & > b {
+            font-size: 5vw;
+            font-weight: 700;
+            line-height: 1;
+            color: #ffffff;
+
+            margin-bottom: 1vh;
+
+            z-index: 100;
+        }
+
+        & > label {
+            font-size: 3.7vw;
+            font-weight: 300;
+            color: #ffffff;
+
+            z-index: 100;
+        }
+    }
+
+    &__darkBack {
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        width: 100%;
+        height: 100%;
+
+        z-index: 50;
+
+        opacity: .35;
+        background-color: #000000;
+    }
+}

@@ -1,0 +1,108 @@
+@import "base";
+
+.Lecture {
+    position: relative;
+    display: flex;
+
+    width: 100%;
+
+    cursor: pointer;
+
+    &__label {
+        .clear();
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        width: 32vw;
+        height: 7.4vw;
+
+        & > * {
+            float: left;
+            display: inline-block;
+
+            width: 14vw;
+            height: 7.4vw;
+
+            font-size: 3vw;
+            font-weight: 700;
+            line-height: 7.4vw;
+            text-align: center;
+        }
+
+        & > span {
+            width: 18vw;
+            color: #ffffff;
+            background-color: #000000;
+        }
+
+        & > label {
+            font-style: italic;
+            color: #ffffff;
+            background-color: #d0021b;
+        }
+    }
+
+    &__image {
+        flex: 1;
+
+        background-size: cover;
+        background-position: center;
+    }
+
+    &__content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        padding: 2.2vw;
+
+        background-color: #ffffff;
+    }
+
+    &__title {
+        flex: none;
+
+        margin-bottom: 2.5vw;
+
+        font-size: 4.45vw;
+        font-weight: 700;
+        color: #ff5959;
+    }
+
+    &__description {
+        flex: 1;
+
+        margin-bottom: 9vw;
+
+        font-size: 3.54vw;
+        line-height: 1.3;
+    }
+
+    &__teacher {
+        flex: none;
+    }
+}
+
+.LectureList {
+    display: block;
+
+    padding: 3vw 0 2.5vw 0;
+
+    &__title {
+        display: block;
+
+        padding: 0 2.6vw;
+
+        font-size: 3.8vw;
+        font-weight: 700;
+        line-height: 1.2;
+
+        margin-bottom: 2vw;
+    }
+
+    & > .Lecture {
+        margin-bottom: 0.9vw;
+    }
+}

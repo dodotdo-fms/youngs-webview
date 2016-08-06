@@ -1,0 +1,19 @@
+<div class="AddForm">
+    <div class="AddForm__inner">
+        <div class="StudySelect">
+            <span class="StudySelect__title">스터디 선택</span>
+            <div class="StudySelectItemList">
+                <span ng-repeat="item in studyTypeMenu track by item.id"
+                      ng-click="study_select.selectType(item)"
+                      ng-class="{
+                        'StudySelectItemList__item--is-selected': study_select.isTypeIncluded(item.value) || (study_select.filter === 'all' && item.value === 'all')
+                      }"
+                      class="StudySelectItemList__item">{{ ::item.name }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="AddForm__button">
+        <button ng-click="study_select.submitSelectFilter()">저장하기</button>
+    </div>
+</div>

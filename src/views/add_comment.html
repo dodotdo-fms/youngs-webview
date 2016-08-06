@@ -1,0 +1,17 @@
+<div class="AddReview">
+    <div class="AddStar">
+        <div ng-repeat="i in makeRange(5)"
+             ng-click="add_comment.selectRate(i + 1)"
+             ng-class="{
+                'AddStar__item--is-none': (i + 1) > add_comment.rate,
+                'AddStar__item--is-stared': (i + 1) <= add_comment.rate
+             }"
+             class="AddStar__item"></div>
+
+        <label>{{ add_comment.rate }} / <b>5</b></label>
+    </div>
+
+    <textarea ng-model="add_comment.content" maxlength="3000" placeholder="리뷰를 작성해주세요."></textarea>
+    <button ng-disabled="currentRequesting"
+            ng-click="add_comment.onSubmitRate()">작성하기</button>
+</div>

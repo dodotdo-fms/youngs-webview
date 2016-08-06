@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <base href="/" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge" />
+
+    <title>Youngs</title>
+
+    <meta name="author" content="admin@youngspeaking.com" />
+    <meta name="description" content="Youngs: 나에게 필요한 스피킹 스킬을 실시간으로 습득하자!" />
+
+    <link rel="stylesheet" type="text/css" href="./assets/fonts/kopubdotum.css" />
+    <link rel="stylesheet" type="text/css" href="./vendor/ng-dialog/css/ngDialog.min.css" />
+    <link rel="stylesheet" type="text/css" href="./vendor/ng-dialog/css/ngDialog-theme-default.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+</head>
+<body ng-controller="MainCtrl as main">
+    <div ng-show="currentRequesting"
+         class="Progress">
+        <div class="Progress__indeterminate"></div>
+    </div>
+
+    <div id="wrap">
+        <div id="container" ui-view></div>
+    </div>
+
+    <script type="text/javascript" src="./vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="./vendor/ng-dialog/js/ngDialog.min.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+</body>
+</html>

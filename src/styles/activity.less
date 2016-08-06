@@ -1,0 +1,27 @@
+.Activity {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    &--type {
+        &-detail {
+            background-color: #ffffff;
+        }
+    }
+}
+
+.Container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    & > div {
+        flex: 1;
+        display: block;
+        overflow-y: scroll;
+    }
+
+    &--is-notScroll {
+        & > div { overflow-y: visible; }
+    }
+}

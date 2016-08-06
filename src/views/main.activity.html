@@ -1,0 +1,27 @@
+<div class="Activity Activity--type-main">
+    <div class="Header">
+        <div class="Header__top">
+            <img class="Header__logo" src="./assets/images/logo_top.png" />
+        </div>
+        <div class="Header__bottom">
+            <div ng-controller="HeaderCtrl as header"
+                 class="HeaderMenu">
+                <div ng-class="{
+                        'HeaderMenu__bar--position-first': routeState.includes('main.home'),
+                        'HeaderMenu__bar--position-second': routeState.includes('main.study'),
+                        'HeaderMenu__bar--position-third': routeState.includes('main.my')
+                    }" class="HeaderMenu__bar"></div>
+
+                    <span ng-repeat="menu in header.headerMenu track by menu.id"
+                          ng-disabled="currentRequesting"
+                          ng-click="header.onSelectMenuItem(menu)"
+                          ng-class="{
+                            'HeaderMenu__item--is-active': routeState.includes(menu.value)
+                          }"
+                          class="HeaderMenu__item">{{ ::menu.name }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div ui-view="container" class="Container"></div>
+</div>

@@ -1,0 +1,45 @@
+.StudySelect {
+    display: block;
+
+    padding: 1.5vh 2vw;
+
+    &__title {
+        display: block;
+
+        font-size: 4.5vw;
+
+        margin-bottom: 1.7vh;
+    }
+}
+
+.StudySelectItemList {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    margin: 0 -.75vw;
+
+    &__item {
+        width: calc(~"25% - 1.5vw");
+        height: 7vh;
+
+        margin: 0 .75vw 0.9vh .75vw;
+
+        font-size: 3.7vw;
+        font-weight: 700;
+        line-height: 7vh;
+        color: #ff5959;
+        text-align: center;
+
+        border: 0.55vw solid #ff5959;
+
+        cursor: pointer;
+
+        &--is {
+            &-selected {
+                color: #ffffff;
+                background-color: #ff5959;
+            }
+        }
+    }
+}

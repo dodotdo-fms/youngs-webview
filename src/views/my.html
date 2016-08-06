@@ -1,0 +1,83 @@
+<div class="My">
+    <div class="LectureList">
+        <span class="LectureList__title">수강중인 강의</span>
+
+        <div ng-if="my.listeningLectures.length === 0 && !currentRequesting"
+             class="NoItem">정보가 없습니다.</div>
+
+        <div ng-repeat="lecture in my.listeningLectures track by lecture.id"
+             ng-click="onSelectLecture(lecture.id)"
+             class="Lecture">
+            <div class="Lecture__label">
+                <span>{{ ::lecture.type }}</span>
+                <label ng-if="isLive(lecture)">LIVE</label>
+            </div>
+
+            <div class="Lecture__image"
+                 style="background-image: url('{{ ::lecture.img_url }}');"></div>
+            <div class="Lecture__content">
+                <span class="Lecture__title">{{ ::lecture.title }}</span>
+                <span class="Lecture__description">
+                    {{ ::lecture.description }}
+                </span>
+                <div class="Lecture__teacher">
+                    <div class="TeacherSummary">
+                        <img class="TeacherSummary__profile" src="{{ ::lecture.member.profile_url }}" />
+                        <div class="TeacherSummary__context">
+                            <span>{{ ::lecture.member.nickname }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="LectureList">
+        <span class="LectureList__title">개설한 강의</span>
+
+        <div ng-if="my.myLectures.length === 0 && !currentRequesting"
+             class="NoItem">정보가 없습니다.</div>
+
+        <div ng-repeat="lecture in my.myLectures track by lecture.id"
+             ng-click="onSelectLecture(lecture.id)"
+             class="Lecture">
+            <div class="Lecture__label">
+                <span>{{ ::lecture.type }}</span>
+                <label ng-if="isLive(lecture)">LIVE</label>
+            </div>
+
+            <div class="Lecture__image"
+                 style="background-image: url('{{ ::lecture.img_url }}');"></div>
+            <div class="Lecture__content">
+                <span class="Lecture__title">{{ ::lecture.title }}</span>
+                <span class="Lecture__description">
+                    {{ ::lecture.description }}
+                </span>
+                <div class="Lecture__teacher">
+                    <div class="TeacherSummary">
+                        <img class="TeacherSummary__profile" src="{{ ::lecture.member.profile_url }}" />
+                        <div class="TeacherSummary__context">
+                            <span>{{ ::lecture.member.nickname }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="SettingMenu">
+        <div ui-sref="detail.addLecture"
+             class="SettingItem">
+            <span>강의 등록하기</span>
+        </div>
+        <div ng-click="my.logout()"
+             class="SettingItem">
+            <span>로그아웃</span>
+        </div>
+    </div>
+
+    <div class="NoItem" style="text-align: center;">
+        DoDotDo Inc. Present<br />
+        Youngs © 2016. All right reserved.
+    </div>
+</div>

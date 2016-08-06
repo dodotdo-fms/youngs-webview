@@ -1,0 +1,115 @@
+@import "base";
+
+.TeacherSummary {
+    display: flex;
+
+    height: 8vw;
+
+    align-items: center;
+
+    &__profile {
+        .profile(8);
+        flex: none;
+
+        margin-right: 1.6vw;
+    }
+
+    &__context {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        height: 8vw;
+
+        font-size: 3.2vw;
+        font-weight: 300;
+        line-height: 1;
+
+        & > * {
+            flex: 1;
+            display: flex;
+
+            align-items: center;
+        }
+    }
+}
+
+.TeacherDetail {
+    display: flex;
+
+    width: 100%;
+    height: 20vh;
+
+    padding: 0 2vw;
+
+    &__inner {
+        flex: 1;
+        display: flex;
+
+        width: 100%;
+        height: 100%;
+
+        background-color: #ffffff;
+    }
+
+    &__profile {
+        flex: 1;
+
+        background-size: cover;
+        background-position: center;
+    }
+
+    &__content {
+        flex: 1.65;
+        display: block;
+
+        padding: 1.7vh 3.4vw;
+
+        & > table {
+            table-layout: fixed;
+
+            width: 100%;
+            height: 100%;
+
+            font-size: 3.85vw;
+
+            td:first-child {
+                width: 40%;
+
+                font-weight: 700;
+                color: #ff5959;
+            }
+        }
+    }
+
+    &__stars {
+        .star(3.52);
+    }
+
+    &--is-small {
+        height: 15vh;
+    }
+}
+
+.TeacherList {
+    display: block;
+
+    padding: 3vw 0 2.5vw 0;
+
+    &__title {
+        display: block;
+
+        padding: 0 2.6vw;
+
+        font-size: 3.8vw;
+        font-weight: 700;
+        line-height: 1.2;
+
+        margin-bottom: 2vw;
+    }
+
+    & > .TeacherDetail {
+        margin-bottom: 1vh;
+    }
+}
+

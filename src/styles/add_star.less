@@ -1,0 +1,41 @@
+.AddStar {
+    display: flex;
+
+    padding: 4px 6px;
+    margin-bottom: 10px;
+
+    align-items: center;
+    justify-content: center;
+
+    &__item {
+        display: inline-block;
+
+        margin: 0 6px;
+
+        width: 24px;
+        height: 24px;
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        &--is {
+            &-none {
+                background-image: url("../assets/images/star_back.png");
+            }
+
+            &-stared {
+                background-image: url("../assets/images/star.png");
+            }
+        }
+    }
+
+    & > label {
+        align-self: flex-end;
+
+        padding-top: 6px;
+        margin-left: 10px;
+
+        color: #ffa000;
+    }
+}
