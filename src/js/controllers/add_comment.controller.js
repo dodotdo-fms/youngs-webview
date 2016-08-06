@@ -1,4 +1,5 @@
 var escape = require('lodash/escape');
+var isEmpty = require('lodash/isEmpty');
 
 function AddCommentCtrl($scope, $state, apiService) {
     var vm = this;
@@ -12,6 +13,11 @@ function AddCommentCtrl($scope, $state, apiService) {
 
     vm.onSubmitRate = function () {
         var lectureId = $state.params.lectureId;
+
+        if (isEmpty(vm.content)) {
+            $scope.$emit('NO_INPUT');
+            return;
+        }
 
         $scope.$emit('REQUEST_AJAX');
 

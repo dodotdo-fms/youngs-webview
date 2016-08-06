@@ -30,6 +30,13 @@ function MainCtrl($scope, $state, ngDialog, studyFilterService, Constants) {
         });
     });
 
+    $scope.$on('NO_INPUT', function () {
+        ngDialog.open({
+            templateUrl: './views/no_input_dialog.html',
+            showClose: false
+        });
+    });
+
     $scope.onSelectLecture = function (lectureId) {
         $state.go('detail.lecture', {
             lectureId: lectureId
