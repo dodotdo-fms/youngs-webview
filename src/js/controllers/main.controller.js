@@ -23,9 +23,7 @@ function MainCtrl($scope, $state, ngDialog, studyFilterService, Constants) {
 
     $scope.studyFilterService = studyFilterService;
 
-    $scope.$on('ERROR', function (err) {
-        alert(err);
-        alert(err.message);
+    $scope.$on('ERROR', function () {
         ngDialog.open({
             templateUrl: './views/dialog.html',
             showClose: false

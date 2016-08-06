@@ -4,6 +4,9 @@ function accessTokenFactory($q, $location, tokenFactory) {
             var tokenFormHash = $location.search().token;
             var memberIdFromHash = $location.search().member_id;
 
+            alert(tokenFormHash);
+            alert(memberIdFromHash);
+
             if (tokenFormHash !== undefined && memberIdFromHash !== undefined) {
                 tokenFactory.setToken(tokenFormHash);
                 tokenFactory.setMemberId(memberIdFromHash);
