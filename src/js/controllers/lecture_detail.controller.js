@@ -32,7 +32,7 @@ function LectureDetailCtrl($scope, $state, tokenFactory, apiService) {
 
     vm.isMyLecture = false;
     vm.startLecture = function () {
-        window.android.setMessage(lectureId);
+        window.youngs.setMessage(lectureId);
     };
 
 

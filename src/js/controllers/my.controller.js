@@ -1,4 +1,4 @@
-function MyCtrl($scope, apiService) {
+function MyCtrl($scope, tokenFactory, apiService) {
     var vm = this;
     var initLoaded = 0;
 
@@ -10,8 +10,10 @@ function MyCtrl($scope, apiService) {
 
         apiService.logout().then(
             function () {
-                window.android.setMessage(-1);
+                tokenFactory.removeCookies();
                 $scope.$emit('RESPONSE_AJAX');
+
+                window.youngs.setMessage(-1);
             },
             function (err) {
                 $scope.$emit('RESPONSE_AJAX');
@@ -20,6 +22,10 @@ function MyCtrl($scope, apiService) {
                 });
             }
         );
+    };
+
+    vm.addLecture = function () {
+        window.youngs.setMessage(-2);
     };
 
     init();
@@ -75,7 +81,7 @@ function MyCtrl($scope, apiService) {
     }
 }
 
-MyCtrl.$inject = ['$scope', 'apiService'];
+MyCtrl.$inject = ['$scope', 'tokenFactory', 'apiService'];
 
 module.exports = {
     name: 'MyCtrl',

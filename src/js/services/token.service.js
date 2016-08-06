@@ -27,6 +27,11 @@ function tokenFactory($cookies) {
             return memberId;
         },
 
+        removeCookies: function () {
+            $cookies.remove('token');
+            $cookies.remove('member_id');
+        },
+
         isTokenExists: function () {
             return $cookies.get('token') !== undefined;
         },
