@@ -1,15 +1,12 @@
+var isUndefined = require('lodash/isUndefined');
+
 function accessTokenFactory($q, $location, tokenFactory) {
     return {
         getTokenFromHash: function () {
             var tokenFormHash = $location.search().token;
             var memberIdFromHash = $location.search().member_id;
 
-            alert(tokenFormHash);
-            alert(memberIdFromHash);
-
-            alert(tokenFactory.isTokenExists() && tokenFactory.isMemberIdExists());
-
-            if (tokenFormHash !== undefined && memberIdFromHash !== undefined) {
+            if (!isUndefined(tokenFormHash) && !isUndefined(memberIdFromHash)) {
                 tokenFactory.setToken(tokenFormHash);
                 tokenFactory.setMemberId(memberIdFromHash);
 
