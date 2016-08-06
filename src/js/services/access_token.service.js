@@ -4,7 +4,7 @@ function accessTokenFactory($q, $location, tokenFactory) {
             var tokenFormHash = $location.search().token;
             var memberIdFromHash = $location.search().member_id;
 
-            if (tokenFormHash !== undefined) {
+            if (tokenFormHash !== undefined && memberIdFromHash !== undefined) {
                 tokenFactory.setToken(tokenFormHash);
                 tokenFactory.setMemberId(memberIdFromHash);
 
@@ -14,7 +14,7 @@ function accessTokenFactory($q, $location, tokenFactory) {
                 return 'OK';
             }
 
-            if (tokenFactory.isTokenExists()) {
+            if (tokenFactory.isTokenExists() && tokenFactory.isMemberIdExists()) {
                 return 'OK';
             }
 

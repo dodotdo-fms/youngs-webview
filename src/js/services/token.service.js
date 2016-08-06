@@ -5,11 +5,21 @@ function tokenFactory($cookies) {
     return {
         setToken: function (newToken) {
             token = newToken;
+
+            if (this.isTokenExists()) {
+                $cookies.remove('token');
+            }
+
             $cookies.put('token', token);
         },
 
         setMemberId: function (newMemberId) {
             memberId = newMemberId;
+
+            if (this.isMemberIdExists()) {
+                $cookies.remove('member_id');
+            }
+
             $cookies.put('member_id', memberId);
         },
 
