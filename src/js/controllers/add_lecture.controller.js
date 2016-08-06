@@ -5,7 +5,7 @@ function AddLectureCtrl($scope, apiService) {
 
     vm.lectureTypeMenu = [
         { id: 1, name: 'OPIC', value: 'OPIC' },
-        { id: 2, name: '토플', value: 'TOFEL' },
+        { id: 2, name: '토플', value: 'TOEFL' },
         { id: 3, name: '토익', value: 'TOEIC' },
         { id: 4, name: '회사 면접', value: 'INTERVIEW' },
         { id: 5, name: '자유주제', value: 'FREE' },
