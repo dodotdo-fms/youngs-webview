@@ -7,9 +7,14 @@ function accessTokenFactory($q, $location, tokenFactory) {
             alert(tokenFormHash);
             alert(memberIdFromHash);
 
+            alert(tokenFactory.isTokenExists() && tokenFactory.isMemberIdExists());
+
             if (tokenFormHash !== undefined && memberIdFromHash !== undefined) {
                 tokenFactory.setToken(tokenFormHash);
                 tokenFactory.setMemberId(memberIdFromHash);
+
+                $location.search('token', null);
+                $location.search('member_id', null);
 
                 return 'OK';
             }
