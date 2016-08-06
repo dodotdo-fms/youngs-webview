@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "angular": "^1.5.8",
-    "ng-dialog": "^0.6.2"
+    "ng-dialog": "^0.6.2",
+    "vanilla-rippleJS": "vanilla-ripplejs#^1.0.3"
   }
 }

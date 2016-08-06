@@ -58,7 +58,7 @@
         <div class="ReviewList">
             <div class="ReviewList__title">
                 <span>YOUNGS Teach 리뷰</span>
-                <a href="/detail/lecture/{{ routeState.params.lectureId }}/addComment">리뷰 작성하기</a>
+                <a href="/detail/lecture/{{ routeState.params.lectureId }}/addComment">리뷰 작성하기<link class="rippleJS" /></a>
             </div>
 
             <div ng-repeat="review in lecture_detail.lecture.review_list track by review.id"
