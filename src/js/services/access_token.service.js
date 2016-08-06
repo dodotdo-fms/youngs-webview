@@ -11,9 +11,6 @@ function accessTokenFactory($q, $location, tokenFactory) {
                 tokenFactory.setToken(tokenFormHash);
                 tokenFactory.setMemberId(memberIdFromHash);
 
-                $location.search('token', null);
-                $location.search('member_id', null);
-
                 return 'OK';
             }
 
