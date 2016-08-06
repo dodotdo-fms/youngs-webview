@@ -76,7 +76,7 @@ function LectureDetailCtrl($scope, $state, tokenFactory, apiService) {
             case 'ONAIR':
                 vm.joinBtnStr = vm.joinBtnStrMap.onair;
                 break;
-            case 'finished':
+            case 'FINISHED':
                 vm.joinBtnStr = vm.joinBtnStrMap.finished;
                 break;
             default:
