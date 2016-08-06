@@ -18,6 +18,7 @@
 
     <div class="LectureInfo__btnInner">
         <button ng-disabled="lecture_detail.joinBtnStr.disabled"
+                ng-click="lecture_detail.startLecture()"
                 class="LectureInfo__joinBtn">
             {{ lecture_detail.joinBtnStr.name }}
         </button>
