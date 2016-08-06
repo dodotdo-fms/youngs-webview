@@ -38,7 +38,7 @@
                             <td>평점</td>
                             <td>
                                 <div class="TeacherDetail__stars">
-                                    <span ng-repeat="i in lecture_detail.makeRange(lecture_detail.lecture.point_avg)"></span>
+                                    <span ng-repeat="i in makeRange(lecture_detail.lecture.point_avg)"></span>
 
                                     <label>{{ ::(lecture_detail.lecture.point_avg | NumberFilter) }}</label>
                                 </div>
