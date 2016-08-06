@@ -7,7 +7,8 @@ function config($stateProvider,
         .state('main', {
             url: '/',
             templateUrl: './views/main.activity.html',
-            abstract: true
+            abstract: true,
+            redirectTo: '/home'
         })
         .state('main.home', {
             url: 'home',

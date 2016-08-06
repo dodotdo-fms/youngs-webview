@@ -2,9 +2,7 @@ function AdvertiseCtrl($interval) {
     var vm = this;
     vm.advertises = [
         { id: 0, type: 'YoungsAdvertise' },
-        { id: 1, type: 'YoungsAdvertise' },
-        { id: 2, type: 'YoungsAdvertise' },
-        { id: 3, type: 'YoungsAdvertise' }
+        { id: 1, type: 'ToiecAdvertise' }
     ];
     vm.currentIndex = 0;
 
