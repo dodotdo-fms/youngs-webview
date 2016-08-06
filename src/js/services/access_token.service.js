@@ -14,8 +14,9 @@ function accessTokenFactory($q, $location, tokenFactory) {
                 return 'OK';
             }
 
-            if (tokenFactory.isTokenExists()) return 'OK';
-            if (tokenFactory.isMemberIdExists()) return 'OK';
+            if (tokenFactory.isTokenExists() && tokenFactory.isMemberIdExists()) {
+                return 'OK';
+            }
 
             return $q.reject('NO_TOKEN');
         }
