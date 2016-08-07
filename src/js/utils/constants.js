@@ -34,7 +34,7 @@ module.exports = {
 
     typeMenuMap: {
         OPIC: 'OPIC',
-        TOFEL: '토플',
+        TOEFL: '토플',
         TOEIC: '토익',
         INTERVIEW: '회사 면접',
         FREE: '자유주제',
