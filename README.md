@@ -1,5 +1,7 @@
 # Youngs Webview
 
+Work's on Android 4.4.3 higher. Only support on WebView which based on the chromium.
+
 ### Get started
 
 ```shell
